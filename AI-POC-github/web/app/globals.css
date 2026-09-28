@@ -1,0 +1,161 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+  background: #0f1419;
+  color: #e7ecf3;
+}
+
+.app {
+  max-width: 960px;
+  margin: 0 auto;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  padding: 1rem;
+}
+
+.header {
+  padding: 1rem 0 1.5rem;
+  border-bottom: 1px solid #2a3441;
+}
+
+.header h1 {
+  margin: 0 0 0.25rem;
+  font-size: 1.5rem;
+}
+
+.header p {
+  margin: 0;
+  color: #9aa8b8;
+  font-size: 0.9rem;
+}
+
+.prompts {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin: 1rem 0;
+  max-height: 9.5rem;
+  overflow-y: auto;
+  padding-bottom: 0.25rem;
+}
+
+.prompt-btn {
+  background: #1a2332;
+  border: 1px solid #2a3441;
+  color: #c5d0de;
+  border-radius: 999px;
+  padding: 0.4rem 0.85rem;
+  font-size: 0.8rem;
+  cursor: pointer;
+  text-align: left;
+  line-height: 1.35;
+}
+
+.prompt-btn:hover {
+  border-color: #4a90d9;
+  color: #fff;
+}
+
+.messages {
+  flex: 1;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  padding: 1rem 0;
+}
+
+.message {
+  border-radius: 12px;
+  padding: 0.875rem 1rem;
+  line-height: 1.5;
+  white-space: pre-wrap;
+}
+
+.message.user {
+  background: #1e3a5f;
+  align-self: flex-end;
+  max-width: 85%;
+}
+
+.message.assistant {
+  background: #1a2332;
+  border: 1px solid #2a3441;
+  align-self: flex-start;
+  max-width: 95%;
+}
+
+.message.error {
+  background: #3d1f1f;
+  border: 1px solid #7a3030;
+}
+
+.tool-panel {
+  margin-top: 0.75rem;
+  border-top: 1px solid #2a3441;
+  padding-top: 0.75rem;
+}
+
+.tool-panel summary {
+  cursor: pointer;
+  color: #7eb6ff;
+  font-size: 0.85rem;
+}
+
+.tool-panel pre {
+  margin: 0.5rem 0 0;
+  padding: 0.75rem;
+  background: #0f1419;
+  border-radius: 8px;
+  overflow-x: auto;
+  font-size: 0.75rem;
+  color: #a8b8c8;
+}
+
+.composer {
+  display: flex;
+  gap: 0.5rem;
+  padding-top: 1rem;
+  border-top: 1px solid #2a3441;
+}
+
+.composer input {
+  flex: 1;
+  background: #1a2332;
+  border: 1px solid #2a3441;
+  border-radius: 10px;
+  padding: 0.75rem 1rem;
+  color: #e7ecf3;
+  font-size: 1rem;
+}
+
+.composer input:focus {
+  outline: none;
+  border-color: #4a90d9;
+}
+
+.composer button {
+  background: #2563eb;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  padding: 0 1.25rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.composer button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.typing {
+  color: #9aa8b8;
+  font-style: italic;
+  padding: 0.5rem 0;
+}

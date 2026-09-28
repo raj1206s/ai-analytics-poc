@@ -1,0 +1,110 @@
+[
+  {
+    "id": "logins_march_2025",
+    "question": "Logins (LD) in March 2025",
+    "metric": "Logins (LD)",
+    "start_date": "2025-03-01",
+    "end_date": "2025-03-31",
+    "expected_min": 1
+  },
+  {
+    "id": "loan_amount_march_2025",
+    "question": "Loan Amount (LD) in March 2025",
+    "metric": "Loan Amount (LD)",
+    "start_date": "2025-03-01",
+    "end_date": "2025-03-31",
+    "expected_min": 100000
+  },
+  {
+    "id": "sanctions_q2_2025",
+    "question": "Sanctions (All) Q2 2025",
+    "metric": "Sanctions (All)",
+    "start_date": "2025-04-01",
+    "end_date": "2025-06-30",
+    "expected_min": 1
+  },
+  {
+    "id": "sanction_amount_q2_2025",
+    "question": "Sanction Amount (All) Q2 2025",
+    "metric": "Sanction Amount (All)",
+    "start_date": "2025-04-01",
+    "end_date": "2025-06-30",
+    "expected_min": 100000
+  },
+  {
+    "id": "first_disbursed_july_2025",
+    "question": "First Disbursed (All) July 2025",
+    "metric": "First Disbursed (All)",
+    "start_date": "2025-07-01",
+    "end_date": "2025-07-31",
+    "expected_min": 0
+  },
+  {
+    "id": "first_disbursed_amount_2025",
+    "question": "First Disbursed Amount (All) 2025 YTD",
+    "metric": "First Disbursed Amount (All)",
+    "start_date": "2025-01-01",
+    "end_date": "2025-08-31",
+    "expected_min": 0
+  },
+  {
+    "id": "logins_by_branch",
+    "question": "Logins by branch March 2025",
+    "metric": "Logins (LD)",
+    "start_date": "2025-03-01",
+    "end_date": "2025-03-31",
+    "group_by": "branch_location",
+    "expected_min_rows": 1
+  },
+  {
+    "id": "sanction_amount_by_product",
+    "question": "Sanction amount by product Q1 2025",
+    "metric": "Sanction Amount (All)",
+    "start_date": "2025-01-01",
+    "end_date": "2025-03-31",
+    "group_by": "product_group",
+    "expected_min_rows": 1
+  },
+  {
+    "id": "credit_declined_q1_2025",
+    "question": "Credit declined count Q1 2025",
+    "sql": "SELECT COUNT(*) AS value FROM application WHERE status = 'credit_declined' AND credit_declined_date::date BETWEEN '2025-01-01' AND '2025-03-31'",
+    "expected_min": 1
+  },
+  {
+    "id": "customer_declined_2025",
+    "question": "Customer declined 2025",
+    "sql": "SELECT COUNT(*) AS value FROM application WHERE status = 'customer_declined' AND customer_declined_date::date BETWEEN '2025-01-01' AND '2025-12-31'",
+    "expected_min": 1
+  },
+  {
+    "id": "under_cm_review",
+    "question": "Applications under CM review",
+    "sql": "SELECT COUNT(*) AS value FROM application WHERE status = 'under_cm_review'",
+    "expected_min": 1
+  },
+  {
+    "id": "cm_review_more_info",
+    "question": "CM review with more info required",
+    "sql": "SELECT COUNT(*) AS value FROM application a JOIN credit_history c ON a.loan_id = c.loan_id WHERE a.status = 'under_cm_review' AND c.more_info_required_status IS NOT NULL",
+    "expected_min": 1
+  },
+  {
+    "id": "disbursement_review_count",
+    "question": "Disbursement review count",
+    "sql": "SELECT COUNT(*) AS value FROM application WHERE status = 'disbursement_review'",
+    "expected_min": 1
+  },
+  {
+    "id": "logged_only",
+    "question": "Logged applications only",
+    "sql": "SELECT COUNT(*) AS value FROM application WHERE status = 'logged'",
+    "expected_min": 50
+  },
+  {
+    "id": "sanctioned_count",
+    "question": "Sanctioned applications",
+    "sql": "SELECT COUNT(*) AS value FROM application WHERE status = 'sanctioned'",
+    "expected_min": 30
+  }
+]
